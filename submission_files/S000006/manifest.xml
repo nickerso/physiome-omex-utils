@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omexManifest xmlns="https://identifiers.org/combine.specifications/omex-manifest">
+  <content location="." format="https://identifiers.org/combine.specifications/omex" />
+  <content location="./manifest.xml" format="https://identifiers.org/combine.specifications/omex-manifest" />
+  <content location="./code/Fig03.cellml" format="http://identifiers.org/combine.specifications/cellml" />
+  <content location="./code/Fig03.sedml" format="http://identifiers.org/combine.specifications/sed-ml" />
+  <content location="./code/Fig05.cellml" format="http://identifiers.org/combine.specifications/cellml" />
+  <content location="./code/Fig05.sedml" format="http://identifiers.org/combine.specifications/sed-ml" />
+  <content location="./code/Fig06.cellml" format="http://identifiers.org/combine.specifications/cellml" />
+  <content location="./code/Fig06.sedml" format="http://identifiers.org/combine.specifications/sed-ml" />
+  <content location="./code/Fig07.cellml" format="http://identifiers.org/combine.specifications/cellml" />
+  <content location="./code/Fig07.sedml" format="http://identifiers.org/combine.specifications/sed-ml" />
+  <content location="./code/Fig08.cellml" format="http://identifiers.org/combine.specifications/cellml" />
+  <content location="./code/Fig08.sedml" format="http://identifiers.org/combine.specifications/sed-ml" />
+  <content location="./code/Fig09.cellml" format="http://identifiers.org/combine.specifications/cellml" />
+  <content location="./code/Fig09.sedml" format="http://identifiers.org/combine.specifications/sed-ml" />
+  <content location="./code/Fig10.cellml" format="http://identifiers.org/combine.specifications/cellml" />
+  <content location="./code/Fig10.sedml" format="http://identifiers.org/combine.specifications/sed-ml" />
+  <content location="./code/Fig11.cellml" format="http://identifiers.org/combine.specifications/cellml" />
+  <content location="./code/Fig11.sedml" format="http://identifiers.org/combine.specifications/sed-ml" />
+  <content location="./code/Fig12.sedml" format="http://identifiers.org/combine.specifications/sed-ml" />
+  <content location="./code/Fig13.cellml" format="http://identifiers.org/combine.specifications/cellml" />
+  <content location="./code/Fig13.sedml" format="http://identifiers.org/combine.specifications/sed-ml" />
+  <content location="./code/Fig14.cellml" format="http://identifiers.org/combine.specifications/cellml" />
+  <content location="./code/Fig14.sedml" format="http://identifiers.org/combine.specifications/sed-ml" />
+  <content location="./code/Fig15(01).cellml" format="http://identifiers.org/combine.specifications/cellml" />
+  <content location="./code/Fig15(01).sedml" format="http://identifiers.org/combine.specifications/sed-ml" />
+  <content location="./code/Fig15(02).cellml" format="http://identifiers.org/combine.specifications/cellml" />
+  <content location="./code/Fig15(02).sedml" format="http://identifiers.org/combine.specifications/sed-ml" />
+  <content location="./code/Fig16.cellml" format="http://identifiers.org/combine.specifications/cellml" />
+  <content location="./code/Fig15.sedml" format="http://identifiers.org/combine.specifications/sed-ml" />
+  <content location="./code/Fig16.sedml" format="http://identifiers.org/combine.specifications/sed-ml" />
+  <content location="./code/shorten_ocallaghan_davidson_soboleva_2007_wangICaECacalcb_ICalINaCaIbCaIpCainCaODEOKNoIbCaFullwithfKbSS01Hz.cellml" format="http://identifiers.org/combine.specifications/cellml" />
+  <content location="./code/shorten_ocallaghan_davidson_soboleva_2007_wangICanuSR15.cellml" format="http://identifiers.org/combine.specifications/cellml" />
+  </omexManifest>

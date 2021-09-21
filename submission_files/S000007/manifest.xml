@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omexManifest xmlns="https://identifiers.org/combine.specifications/omex-manifest">
+  <content location="." format="https://identifiers.org/combine.specifications/omex" />
+  <content location="./manifest.xml" format="https://identifiers.org/combine.specifications/omex-manifest" />
+  <content location="./Code/CardiovascularMechanics.m" format="text/x-matlab" />
+  <content location="./Code/dXdT_cardiovascular_mechanics.m" format="text/x-matlab" />
+  <content location="./Code/dXdT_energetics.m" format="text/x-matlab" />
+  <content location="./Code/EnergeticsModelScript.m" format="text/x-matlab" />
+  <content location="./Code/TrisegEquations.m" format="text/x-matlab" />
+  <content location="./Code/Adjustable_parameters_table_rest.xlsx" format="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
+  <content location="./Code/Adjustable_parameters_table_swap.xlsx" format="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
+  <content location="./Code/data1.xlsx" format="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
+  <content location="./Code/DescriptionofModelandCodes.pdf" format="application/pdf" />
+  </omexManifest>

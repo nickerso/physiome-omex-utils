@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<omexManifest xmlns="https://identifiers.org/combine.specifications/omex-manifest">
+  <content location="." format="https://identifiers.org/combine.specifications/omex" />
+  <content location="./manifest.xml" format="https://identifiers.org/combine.specifications/omex-manifest" />
+  <content location="./Figure4.cellml" format="http://identifiers.org/combine.specifications/cellml" />
+  <content location="./HumanSAN_Fabbri_Fantini_Wilders_Severi_2017.cellml" format="http://identifiers.org/combine.specifications/cellml" />
+  <content location="./Figure4.sedml" format="http://identifiers.org/combine.specifications/sed-ml" />
+  <content location="./HumanSAN_Fabbri_Fantini_Wilders_Severi_2017.sedml" format="http://identifiers.org/combine.specifications/sed-ml" master="True"/>
+  <content location="./Figure1.py" format="application/x-python" />
+  <content location="./Figure2.py" format="application/x-python" />
+  <content location="./Figure3.py" format="application/x-python" />
+  <content location="./Figure4.py" format="application/x-python" />
+  <content location="./Figure5.py" format="application/x-python" />
+  <content location="./Figure6.py" format="application/x-python" />
+  <content location="./Figure7.py" format="application/x-python" />
+ </omexManifest>
