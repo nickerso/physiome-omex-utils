@@ -1,7 +1,10 @@
+# Create a manifest file for an omex archive. Specify the path of the contents (i.e. the parent directory)
+# Author: Shelley Fong
+
 import os
 import lxml.etree as ET
 
-path = "submission_files/Ai2021PhysiomeS000009/"
+path = "submission_files/S000007/"
 
 # also check subfolders
 f = [os.path.join(dp.split(path)[-1], f).replace('\\','/') for dp, dn, filenames in os.walk(path) for f in filenames]
