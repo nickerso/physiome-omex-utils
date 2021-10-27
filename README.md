@@ -6,7 +6,7 @@ Prerequisites: lxml (pip install)
 <ul>
 <li>.cellml</li>
 <li>.sedml  </li>
-<li>.python </li>
+<li>.py </li>
 <li>.csv    </li>
 <li>.m      </li>
 <li>.xlsx   </li>
