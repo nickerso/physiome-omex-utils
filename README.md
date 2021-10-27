@@ -3,18 +3,13 @@
 Prerequisites: lxml (pip install)
 
 ## list of supported MIME types:
-.cellml
-
-.sedml
-
-.python
-
-.csv
-
-.m
-
-.xlsx
-
-.pdf
-
+<ul>
+<li>.cellml</li>
+<li>.sedml  </li>
+<li>.python </li>
+<li>.csv    </li>
+<li>.m      </li>
+<li>.xlsx   </li>
+<li>.pdf    </li>
+</ul>
 Fork this repository then do a git pull request to add new MIME types or to make changes.
