@@ -15,12 +15,15 @@
 import os
 import lxml.etree as ET
 
-path = "C:/Users/sfon036/Desktop/work_files/PhysiomeSubmissions/Ai2021PhysiomeS000013_27Oct/" # "submission_files/S000007/"
+path = "C:/Users/sfon036/Desktop/work_files/PhysiomeSubmissions/s000014_prepublish/model_files" # "submission_files/S000007/"
+path = "C:/Users/sfon036/OneDrive - The University of Auckland/physiome_curation_work/DL_models/W-PCT-E-1.0.2"
 
 # also check subfolders
 f = [os.path.join(dp.split(path)[-1], f).replace('\\','/') for dp, dn, filenames in os.walk(path) for f in filenames]
 # f = os.listdir(path)
 f = [i for i in f if not i.endswith('manifest.xml')]
+f = [i for i in f if not i.endswith('.gitignore')]
+f = [i.lower() for i in f]
 
 fclml = [i for i in f if i.endswith(".cellml")]
 fsed = [i for i in f if i.endswith(".sedml")]
@@ -29,9 +32,13 @@ fcsv = [i for i in f if i.endswith(".csv")]
 fmat = [i for i in f if i.endswith(".m")]
 fxlsx = [i for i in f if i.endswith(".xlsx")]
 fpdf = [i for i in f if i.endswith(".pdf")]
+frst = [i for i in f if i.endswith(".rst")]
+ftxt = [i for i in f if i.endswith(".txt")]
+fmd = [i for i in f if i.endswith(".md")]
+fpng = [i for i in f if i.endswith(".png")]
 
 # check if any MIME type (suffix) is not accounted for
-assert len(fclml + fsed + fpy + fcsv + fmat + fxlsx + fpdf) == len(f), "Filetype present which not on list of supported MIME types"
+assert len(fclml + fsed + fpy + fcsv + fmat + fxlsx + fpdf + frst + ftxt + fmd + fpng) == len(f), "Filetype present which not on list of supported MIME types"
 
 # write to manifest
 outfile = path + "new_manifest.xml"
@@ -62,6 +69,14 @@ for cname in f:
         contentx.set("format", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
     if cname in fpdf:
         contentx.set("format", "application/pdf")
+    if cname in frst:
+        contentx.set("format", "text/x-rst")
+    if cname in ftxt:
+        contentx.set("format", "text/plain")
+    if cname in fmd:
+        contentx.set("format", "text/markdown")
+    if cname in fpng:
+        contentx.set("format", "image/png")
 
 tree = ET.ElementTree(data)
 tree.write(outfile, encoding="utf-8", xml_declaration=True, pretty_print=True)
