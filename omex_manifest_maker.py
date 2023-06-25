@@ -25,20 +25,31 @@ f = [i for i in f if not i.endswith('manifest.xml')]
 f = [i for i in f if not i.endswith('.gitignore')]
 f = [i.lower() for i in f]
 
-fclml = [i for i in f if i.endswith(".cellml")]
-fsed = [i for i in f if i.endswith(".sedml")]
-fpy = [i for i in f if i.endswith(".py")]
-fcsv = [i for i in f if i.endswith(".csv")]
-fmat = [i for i in f if i.endswith(".m")]
-fxlsx = [i for i in f if i.endswith(".xlsx")]
-fpdf = [i for i in f if i.endswith(".pdf")]
-frst = [i for i in f if i.endswith(".rst")]
-ftxt = [i for i in f if i.endswith(".txt")]
-fmd = [i for i in f if i.endswith(".md")]
-fpng = [i for i in f if i.endswith(".png")]
+f_all = dict()
 
+f_all['clml'] = [i for i in f if i.endswith(".cellml")]
+f_all['sed'] = [i for i in f if i.endswith(".sedml")]
+f_all['py'] = [i for i in f if i.endswith(".py")]
+f_all['csv'] = [i for i in f if i.endswith(".csv")]
+f_all['mat'] = [i for i in f if i.endswith(".m")]
+f_all['xlsx'] = [i for i in f if i.endswith(".xlsx")]
+f_all['pdf'] = [i for i in f if i.endswith(".pdf")]
+f_all['rst'] = [i for i in f if i.endswith(".rst")]
+f_all['txt'] = [i for i in f if i.endswith(".txt")]
+f_all['md'] = [i for i in f if i.endswith(".md")]
+f_all['png'] = [i for i in f if i.endswith(".png")]
+
+# fcopy = f_all.copy()
+# allk = fcopy.keys()
+# for k in allk:
+#     if f_all[k] == []:
+#         del f_all[k]
 # check if any MIME type (suffix) is not accounted for
-assert len(fclml + fsed + fpy + fcsv + fmat + fxlsx + fpdf + frst + ftxt + fmd + fpng) == len(f), "Filetype present which not on list of supported MIME types"
+# flat = [i for f_all[fkey] in f_all for i in f_all[fkey]]
+flat = []
+for fkey in f_all:
+    flat += f_all[fkey]
+assert len(flat) == len(f)
 
 # write to manifest
 outfile = path + "new_manifest.xml"
@@ -55,27 +66,27 @@ content2.set("format", "https://identifiers.org/combine.specifications/omex-mani
 for cname in f:
     contentx = ET.SubElement(data, "content")
     contentx.set("location", "./" + cname)
-    if cname in fclml:
+    if cname in f_all['clml']:
         contentx.set("format", "http://identifiers.org/combine.specifications/cellml")
-    if cname in fsed:
+    if cname in f_all['sed']:
         contentx.set("format", "http://identifiers.org/combine.specifications/sed-ml")
-    if cname in fpy:
+    if cname in f_all['py']:
         contentx.set("format", "application/x-python")
-    if cname in fcsv:
+    if cname in f_all['csv']:
         contentx.set("format", "text/csv")
-    if cname in fmat:
+    if cname in f_all['mat']:
         contentx.set("format", "text/x-matlab")
-    if cname in fxlsx:
+    if cname in f_all['xlsx']:
         contentx.set("format", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
-    if cname in fpdf:
+    if cname in f_all['pdf']:
         contentx.set("format", "application/pdf")
-    if cname in frst:
+    if cname in f_all['rst']:
         contentx.set("format", "text/x-rst")
-    if cname in ftxt:
+    if cname in f_all['txt']:
         contentx.set("format", "text/plain")
-    if cname in fmd:
+    if cname in f_all['md']:
         contentx.set("format", "text/markdown")
-    if cname in fpng:
+    if cname in f_all['png']:
         contentx.set("format", "image/png")
 
 tree = ET.ElementTree(data)
