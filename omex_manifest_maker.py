@@ -16,7 +16,11 @@ import os
 import lxml.etree as ET
 
 path = "C:/Users/sfon036/Desktop/work_files/PhysiomeSubmissions/s000014_prepublish/model_files" # "submission_files/S000007/"
-path = "C:/Users/sfon036/OneDrive - The University of Auckland/physiome_curation_work/DL_models/W-PCT-E-1.0.2"
+path = "C:/Users/sfon036/OneDrive - The University of Auckland/physiome_curation_work/DL_models/Noroozbabaee2022PhysiomeS000015"
+
+# path must end with '/'
+if not path[-1] == '/':
+    path += '/'
 
 # also check subfolders
 f = [os.path.join(dp.split(path)[-1], f).replace('\\','/') for dp, dn, filenames in os.walk(path) for f in filenames]
@@ -38,6 +42,9 @@ f_all['rst'] = [i for i in f if i.endswith(".rst")]
 f_all['txt'] = [i for i in f if i.endswith(".txt")]
 f_all['md'] = [i for i in f if i.endswith(".md")]
 f_all['png'] = [i for i in f if i.endswith(".png")]
+f_all['jpeg'] = [i for i in f if i.endswith(".jpeg") and i.endswith(".jpg")]
+f_all['html'] = [i for i in f if i.endswith(".html")]
+f_all['json'] = [i for i in f if i.endswith(".json")]
 
 # fcopy = f_all.copy()
 # allk = fcopy.keys()
@@ -52,7 +59,7 @@ for fkey in f_all:
 assert len(flat) == len(f)
 
 # write to manifest
-outfile = path + "new_manifest.xml"
+outfile = path + "manifest.xml"
 data = ET.Element("omexManifest")
 data.set("xmlns","https://identifiers.org/combine.specifications/omex-manifest")
 content = ET.SubElement(data, "content")
@@ -88,6 +95,12 @@ for cname in f:
         contentx.set("format", "text/markdown")
     if cname in f_all['png']:
         contentx.set("format", "image/png")
+    if cname in f_all['jpeg']:
+        contentx.set("format", "image/jpeg")
+    if cname in f_all['html']:
+        contentx.set("format", "text/html")
+    if cname in f_all['json']:
+        contentx.set("format", "application/json")
 
 tree = ET.ElementTree(data)
 tree.write(outfile, encoding="utf-8", xml_declaration=True, pretty_print=True)
