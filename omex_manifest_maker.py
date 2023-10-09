@@ -51,6 +51,7 @@ def get_file_type(file):
 
 def build_manifest(root_dir):
     manifest = libcombine.CaOmexManifest()
+    archive = libcombine.CombineArchive()
 
     # path must end with '/'
     if not root_dir[-1] == '/':
@@ -66,6 +67,14 @@ def build_manifest(root_dir):
         content = manifest.createContent()
         content.setLocation(i)
         content.setFormat(get_file_type(i))
+        archive.addFile(
+            i, # file to add
+            i, # filename in the archive
+            get_file_type(i), # file type
+            False # master file
+        )
+
+    archive.writeToFile("test.omex")
 
     # add the archive itself and the manifest
     content = manifest.createContent()
