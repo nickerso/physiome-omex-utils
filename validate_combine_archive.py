@@ -14,7 +14,7 @@ def validate_omex_file(filename):
     if archive.initializeFromArchive(filename) is False:
         print("Invalid COMBINE Archive: {}".format(filename))
         return None
-    
+
     print('*' * 50)
     print('Valid archive:', filename)
     print('*' * 50)
