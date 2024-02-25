@@ -47,6 +47,8 @@ def get_file_type(file):
     filename, file_ext = os.path.splitext(file)
     if file_ext in _supported_file_types.keys():
         return _supported_file_types[file_ext]
+    else:
+        return "unknown"
     return ""
 
 def build_archive(root_dir):
@@ -60,12 +62,14 @@ def build_archive(root_dir):
          dp, dn, filenames in os.walk(root_dir) for f in filenames]
     # only keep the file types that we know about
     known_files = []
+    unknown_files = []
     for i in f:
         if known_file_type(i):
             known_files.append(i)
         else:
             print("==> Found unknown file type: {}".format(i))
-    for i in known_files:
+            unknown_files.append(i)
+    for i in known_files + unknown_files:
         archive.addFile(
             i, # file to add
             i, # filename in the archive
