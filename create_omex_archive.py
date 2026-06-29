@@ -50,6 +50,15 @@ _ignored_directory_names = {
     "__pycache__",
     ".venv",
     "venv",
+    "__MACOSX",
+    ".AppleDouble",
+    ".Spotlight-V100",
+    ".Trashes",
+    ".fseventsd",
+}
+
+_ignored_file_names = {
+    ".DS_Store",
 }
 
 def known_file_type(file):
@@ -82,6 +91,8 @@ def build_archive(root_dir):
         # Prune ignored directories in place so os.walk does not descend into them.
         dn[:] = [d for d in dn if d not in _ignored_directory_names]
         for filename in filenames:
+            if filename in _ignored_file_names:
+                continue
             files.append(
                 os.path.join(dp.split(root_dir)[-1], filename).replace('\\', '/')
             )
