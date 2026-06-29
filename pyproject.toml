@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "physiome-omex-utils"
+version = "0.1.0"
+description = "Utilities for creating and validating OMEX archives for Physiome submissions"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "python-libcombine>=0.2.19",
+]
+
+[project.scripts]
+create-omex-archive = "create_omex_archive:main"
+validate-combine-archive = "validate_combine_archive:main"
+
+[tool.setuptools]
+py-modules = ["create_omex_archive", "validate_combine_archive"]

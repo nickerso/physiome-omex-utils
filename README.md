@@ -3,18 +3,20 @@
 Prerequisites:
 
 ```commandline
-$> pip install -r requirements.txt
+$> uv sync
 ```
 
-Suggest that you use a Python virtual environment to avoid contaminating your system Python.
+The project is configured for uv. Running `uv sync` creates and manages the local virtual environment automatically.
+
+You can run commands from inside the source folder, or from anywhere by pointing uv to this project with `--project`.
 
 ## `create_omex_archive.py`
 
 Will create an OMEX Archive for using the given top-level folder. Only the file types that we know about will be included in the generated archive.
 
 ```commandline
-$> python create_omex_archive.py
-usage: python create_omex_archive.py <root-folder> <archive-filename>
+$> uv run create-omex-archive
+usage: create-omex-archive <root-folder> <archive-filename>
        root-folder: the top-level folder to use as the root of the archive
        archive-filename: the name of the OMEX Archive file to create
 
@@ -37,11 +39,41 @@ Supported file types:
    .json with MIME type: application/json
 ```
 
+Run from another folder (for example, where your submission files live):
+
+```commandline
+$> uv run --project C:\path\to\physiome-omex-utils create-omex-archive .\MySubmission MySubmission.omex
+```
+
 ## `validate_combine_archive.py`
 
 Basic validation of a given OMEX Archive file.
 
 ```commandline
-$> python validate_combine_archive.py
-usage: python validate_combine_archive.py <OMEX File>
+$> uv run validate-combine-archive
+usage: validate-combine-archive <OMEX File>
+```
+
+Run from another folder:
+
+```commandline
+$> uv run --project C:\path\to\physiome-omex-utils validate-combine-archive .\MySubmission.omex
+```
+
+## Quick examples (copy/paste)
+
+Use these commands with a real submission folder called `S000007`.
+
+From inside this repository:
+
+```commandline
+$> uv run create-omex-archive .\submission_files\S000007 .\submission_files\S000007.omex
+$> uv run validate-combine-archive .\submission_files\S000007.omex
+```
+
+From anywhere (outside this repository):
+
+```commandline
+$> uv run --project C:\path\to\physiome-omex-utils create-omex-archive C:\path\to\my\files\S000007 C:\path\to\my\files\S000007.omex
+$> uv run --project C:\path\to\physiome-omex-utils validate-combine-archive C:\path\to\my\files\S000007.omex
 ```

@@ -20,9 +20,19 @@ def validate_omex_file(filename):
     print('*' * 50)
     print_omex_contents(archive)
 
-if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("usage: python validate_combine_archive.py <OMEX File>")
-        sys.exit(1)
 
-    validate_omex_file(sys.argv[1])
+def print_usage():
+    print("usage: validate-combine-archive <OMEX File>")
+
+
+def main(argv=None):
+    args = argv if argv is not None else sys.argv[1:]
+    if len(args) < 1:
+        print_usage()
+        return 1
+
+    validate_omex_file(args[0])
+    return 0
+
+if __name__ == "__main__":
+    sys.exit(main())
